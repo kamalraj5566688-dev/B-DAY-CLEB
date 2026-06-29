@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using Google Fonts as a baseline, but local fonts can be placed in assets/fonts/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Canvases -->
+    <canvas id="fireworks-canvas"></canvas>
+    <canvas id="confetti-canvas"></canvas>
+    <div id="floating-elements"></div>
+
+    <!-- Audio Player -->
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mpeg" id="audio-source">
+    </audio>
+
+    <!-- Entry / Countdown Screen -->
+    <div id="entry-screen">
+        <div class="glass-panel text-center">
+            <h1 id="entry-title">A Special Celebration Awaits</h1>
+            <p>Turn up your volume</p>
+            <button id="start-btn" class="premium-btn">Enter the Magic</button>
+            <div id="countdown-display" class="hidden">
+                <h2 id="countdown-timer">3</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Hidden initially) -->
+    <main id="main-content" class="hidden">
+        <button id="music-toggle" class="glass-btn">🎵 Play/Pause</button>
+
+        <section id="hero" class="full-screen fade-in">
+            <div class="hero-content">
+                <h2 class="glowing-text">Happy Birthday</h2>
+                <h1 id="birthday-name" class="massive-text"></h1>
+                <div class="typing-container">
+                    <span id="typing-text"></span><span class="cursor">|</span>
+                </div>
+            </div>
+            <div class="scroll-indicator">↓</div>
+        </section>
+
+        <section id="celebration" class="fade-in">
+            <div class="interactive-grid">
+                <div class="interactive-card glass-panel text-center">
+                    <h3>Make a Wish</h3>
+                    <p class="subtitle">Click the flame to blow out the candle</p>
+                    <div class="cake-container">
+                        <div class="cake-tier bottom-tier"></div>
+                        <div class="cake-tier top-tier"></div>
+                        <div class="candle">
+                            <div class="flame" id="candle-flame"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interactive-card glass-panel text-center">
+                    <h3>A Special Surprise</h3>
+                    <p class="subtitle">Click the gift box to open</p>
+                    <div class="gift-container" id="gift-box">
+                        <div class="gift-lid" id="gift-lid"></div>
+                        <div class="gift-body">
+                            <div class="ribbon-vertical"></div>
+                            <div class="ribbon-horizontal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="surprise-modal" class="hidden">
+            <div class="glass-panel modal-content text-center">
+                <h2 class="glowing-text">Surprise! 🎉</h2>
+                <p id="surprise-message"></p>
+                <button id="close-modal" class="premium-btn mt-2">Close</button>
+            </div>
+        </div>
+
+        <section id="slideshow-section" class="fade-in text-center">
+            <h2 class="section-title">Memories in Motion</h2>
+            <div class="glass-panel slideshow-container">
+                <div id="slideshow-wrapper"></div>
+            </div>
+        </section>
+
+        <section id="special-moment-section" class="fade-in text-center">
+            <h2 class="section-title">A Special Moment Before Our Journey</h2>
+            <div class="glass-panel special-moment-card">
+                <div class="special-moment-media" aria-hidden="true">
+                    <img id="special-moment-image" class="special-moment-image" src="" alt="Special moment">
+
+                    <div class="special-moment-glow"></div>
+                    <div class="special-moment-shimmer"></div>
+                </div>
+                <p class="special-moment-text">A little magic… right before we step into the memories together ✨</p>
+            </div>
+        </section>
+
+        <section id="timeline-section" class="fade-in">
+            <h2 class="section-title text-center">Our Journey</h2>
+            <div class="timeline" id="timeline-container"></div>
+        </section>
+
+
+        <section id="gallery-section" class="fade-in text-center">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid" id="gallery-container"></div>
+        </section>
+
+        <section id="wishes-section" class="fade-in text-center">
+            <h2 class="section-title">Warm Wishes</h2>
+            <div class="wishes-grid" id="wishes-container"></div>
+        </section>
+
+        <section id="message-section" class="fade-in text-center">
+            <div class="glass-panel personal-message-card">
+                <h2 class="glowing-text">A Personal Note</h2>
+                <p id="personal-message" class="cursive-text"></p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="glass-panel footer-content text-center">
+                <p>Made with ❤️ for <span id="footer-name"></span></p>
+                <p class="signature" id="custom-signature"></p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="rev.js"></script>
+</body>
+</html>
